@@ -1,10 +1,9 @@
-@import "tailwindcss/preflight"; /* Menggantikan @tailwind base */
-
-/* @tailwind components; sudah tidak ada lagi di v4 */
-
+/* farhanfarruq/vest-the-croze-sheets/vest-the-croze-sheets-34f986b55464a5f0894793a1aac95a7c4a4d53b8/app/globals.css */
+@import "tailwindcss/preflight";
 @import "tailwindcss/utilities";
+@import "tailwindcss";
 
-/* Kode lama Anda di bawah ini, tidak perlu diubah */
+
 body {
   box-sizing: border-box;
 }
@@ -22,4 +21,8 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+body {
+  background-color: red !important;
 }

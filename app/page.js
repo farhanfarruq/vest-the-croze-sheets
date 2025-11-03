@@ -1,8 +1,10 @@
+// farhanfarruq/vest-the-croze-sheets/vest-the-croze-sheets-34f986b55464a5f0894793a1aac95a7c4a4d53b8/app/page.js
 "use client"; // Wajib ada untuk React Hooks
 
 import React, { useState, useEffect, useMemo } from 'react';
 import axios from 'axios';
 import { jsPDF } from 'jspdf';
+import Image from 'next/image'; // <-- TAMBAHKAN BARIS INI
 
 // Setup base URL untuk API (kita panggil API kita sendiri)
 const api = axios.create({
@@ -45,6 +47,14 @@ function LoginScreen({ onLoginSuccess }) {
     <div id="loginScreen" className="min-h-screen flex items-center justify-center p-4">
       <div className="bg-white rounded-2xl shadow-xl p-8 w-full max-w-md">
         <div className="text-center mb-8">
+          <Image
+            src="/vtc_logo.png"
+            alt="Logo VEST THE CROZE"
+            width={120} // Anda bisa sesuaikan ukurannya
+            height={120} // Anda bisa sesuaikan ukurannya
+            className="mx-auto mb-4"
+            priority // Membuat logo dimuat lebih cepat di halaman login
+          />
           <h1 className="text-3xl font-bold text-gray-800 mb-2">VEST THE CROZE</h1>
           <p className="text-gray-600">Sistem Manajemen Kas Angkatan</p>
         </div>
@@ -272,6 +282,15 @@ function Header({ onLogout }) {
     <header className="bg-white shadow-sm border-b">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
+          <div className="flex items-center gap-3">
+            <Image
+              src="/vtc_logo.png"
+              alt="Logo VTC"
+              width={40} // Ukuran kecil untuk di header
+              height={40}
+            />
+            <h1 className="text-2xl font-bold text-gray-900">VEST THE CROZE</h1>
+          </div>
           <h1 className="text-2xl font-bold text-gray-900">VEST THE CROZE</h1>
           <div className="flex items-center space-x-4">
             <span className="text-sm text-gray-600">Admin</span>
