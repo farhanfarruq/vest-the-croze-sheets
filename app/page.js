@@ -291,7 +291,6 @@ function Header({ onLogout }) {
             />
             <h1 className="text-2xl font-bold text-gray-900">VEST THE CROZE</h1>
           </div>
-          <h1 className="text-2xl font-bold text-gray-900">VEST THE CROZE</h1>
           <div className="flex items-center space-x-4">
             <span className="text-sm text-gray-600">Admin</span>
             <button onClick={onLogout} className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition duration-200">
