@@ -585,21 +585,25 @@ function PaymentsTab({ members, payments, monthlyAmount, onTogglePayment, onUpda
 
 // --- Komponen Tab: Transactions ---
 function TransactionsTab({ transactions, onAddTransaction, onDeleteTransaction }) {
-  const [description, setDescription] = useState('');
-  const [amount, setAmount] = useState('');
+  // --- STATE YANG DIPERBAIKI ---
+  const [incomeDescription, setIncomeDescription] = useState('');
+  const [incomeAmount, setIncomeAmount] = useState('');
+  const [expenseDescription, setExpenseDescription] = useState('');
+  const [expenseAmount, setExpenseAmount] = useState('');
+  // ------------------------------
 
   const handleIncomeSubmit = (e) => {
     e.preventDefault();
-    onAddTransaction('income', description, amount);
-    setDescription('');
-    setAmount('');
+    onAddTransaction('income', incomeDescription, incomeAmount);
+    setIncomeDescription('');
+    setIncomeAmount('');
   };
 
   const handleExpenseSubmit = (e) => {
     e.preventDefault();
-    onAddTransaction('expense', description, amount);
-    setDescription('');
-    setAmount('');
+    onAddTransaction('expense', expenseDescription, expenseAmount);
+    setExpenseDescription('');
+    setExpenseAmount('');
   };
 
   return (
@@ -611,11 +615,13 @@ function TransactionsTab({ transactions, onAddTransaction, onDeleteTransaction }
           <form className="space-y-4" onSubmit={handleIncomeSubmit}>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Deskripsi</label>
-              <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" required />
+              {/* --- PERBAIKAN --- */}
+              <input type="text" value={incomeDescription} onChange={(e) => setIncomeDescription(e.target.value)} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" required />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Jumlah</label>
-              <input type="number" value={amount} onChange={(e) => setAmount(e.target.value)} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" required />
+              {/* --- PERBAIKAN --- */}
+              <input type="number" value={incomeAmount} onChange={(e) => setIncomeAmount(e.target.value)} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" required />
             </div>
             <button type="submit" className="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition duration-200">
               Tambah Pemasukan
@@ -629,11 +635,13 @@ function TransactionsTab({ transactions, onAddTransaction, onDeleteTransaction }
           <form className="space-y-4" onSubmit={handleExpenseSubmit}>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Deskripsi</label>
-              <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" required />
+              {/* --- PERBAIKAN --- */}
+              <input type="text" value={expenseDescription} onChange={(e) => setExpenseDescription(e.target.value)} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" required />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Jumlah</label>
-              <input type="number" value={amount} onChange={(e) => setAmount(e.target.value)} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" required />
+              {/* --- PERBAIKAN --- */}
+              <input type="number" value={expenseAmount} onChange={(e) => setExpenseAmount(e.target.value)} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" required />
             </div>
             <button type="submit" className="w-full bg-red-600 text-white py-2 rounded-lg hover:bg-red-700 transition duration-200">
               Tambah Pengeluaran
@@ -642,7 +650,7 @@ function TransactionsTab({ transactions, onAddTransaction, onDeleteTransaction }
         </div>
       </div>
 
-      {/* Transaction History */}
+      {/* Transaction History (Tidak ada perubahan di bawah ini) */}
       <div className="bg-white rounded-xl shadow-sm p-6 mt-6">
         <h3 className="text-lg font-semibold text-gray-900 mb-4">Riwayat Transaksi</h3>
         <div className="overflow-x-auto">
